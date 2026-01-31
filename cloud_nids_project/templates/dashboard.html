@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NIDS Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>NIDS Dashboard</h1>
+
+<div class="cards">
+    <div class="card red">High: {{ high }}</div>
+    <div class="card orange">Medium: {{ medium }}</div>
+    <div class="card green">Low: {{ low }}</div>
+</div>
+
+<table>
+<tr><th>Time</th><th>Type</th><th>IP</th><th>Severity</th></tr>
+{% for a in alerts %}
+<tr>
+<td>{{ a.timestamp }}</td>
+<td>{{ a.alert_type }}</td>
+<td>{{ a.source_ip }}</td>
+<td>{{ a.severity }}</td>
+</tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
